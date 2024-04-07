@@ -97,7 +97,6 @@ class ArticlesStore {
         this.setArticles(articles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         this.setStatus(statusEnum.SUCCESS);
       } catch(e) {
-        console.log(e);
         this.setStatus(statusEnum.ERROR);
         alert({type: 'error', title: 'Ошибка при получении статей'});
       }

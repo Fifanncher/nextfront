@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import SimpleAccordion from './SimpleAccordion';
 import {toJS} from 'mobx';
-import fields from './fields';
+import getFields from './fields';
 import {Skeleton} from '@mui/material';
 
-@inject(({RootStore, RootStore: {ActiveFilterStore}}) => {
+@inject(({RootStore: {ActiveFilterStore}}) => {
   return {
-    values: ActiveFilterStore.values || {},
-    fieldsLabel: ActiveFilterStore.fieldsLabel,
+    fields: ActiveFilterStore.fields || [],
     unit: ActiveFilterStore.unitPrice,
 
     setValue: ActiveFilterStore.setValue,
@@ -22,18 +21,16 @@ import {Skeleton} from '@mui/material';
     hasKey: ActiveFilterStore.hasKey,
 
     setRange: ActiveFilterStore.setRange,
-    setRangePath: ActiveFilterStore.setRangePath,
+    setRangePath: ActiveFilterStore.setRangePath
   };
 }) @observer
 class Fields extends Component {
   render() {
     const {
       checked,
-      addFields,
       disabled,
-      values,
+      fields,
       setValue,
-      fieldsLabel,
       setPricePath,
       setPrice,
       hasKey,
@@ -42,26 +39,25 @@ class Fields extends Component {
       setRangePath
     } = this.props;
 
-    if (!Object.keys(values).length) {
+    if (!fields.length) {
       return [0, 1, 2, 3, 4].map((i) =>
         <Skeleton key={i} style={{marginTop: 20}} />);
     }
 
-    const filterFields = fields({
-      checked, unit, setPricePath, setPrice, disabled, values, setValue,
+    const filterFields = getFields({
+      checked, unit, setPricePath, setPrice, disabled, fields, setValue,
       setRange,
       setRangePath
     });
-    const keys = [...addFields, ...Object.keys(values)];
 
-    return keys.map((key) => (
+    return fields.map((field) => (
       <SimpleAccordion
-        key={key}
-        id={key}
-        name={fieldsLabel[key]}
-        active={hasKey(key)}
+        key={field.name}
+        id={field.name}
+        name={field.title}
+        active={hasKey(field.name)}
       >
-        {filterFields(key)}
+        {filterFields(field)}
       </SimpleAccordion>
     ));
   }

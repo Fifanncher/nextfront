@@ -2,6 +2,7 @@ import {observable, action, autorun, computed, makeObservable, reaction, toJS} f
 import {status as statusEnum} from '../../enums';
 import api from 'api';
 import Router from 'next/router';
+import {alert} from '../Notifications';
 
 const isServer = typeof window === 'undefined';
 
@@ -190,10 +191,19 @@ class CatalogStore {
         const body = {searchParams: {category, filter: {...filter, fastfilter}}};
         const count = await api.post('catalog/countProducts ', body);
 
+        // временная мера, наверное. Бек всегда отдает 200, даже если ошибка...Не помню зачем сделала так
+        if (count.error) {
+          this.setCount(0);
+          this.checkPageStore(0);
+
+          return;
+        }
+
         this.checkPageStore(count);
         this.setCount(count);
       } catch(_) {
-        // do nothing
+        this.setCount(0);
+        this.checkPageStore(0);
       }
     };
 
@@ -257,7 +267,12 @@ class CatalogStore {
           offset,
           order: optionsOrder.find(({value}) => value === Number(order))
         };
-        const {categories, products} = await api.post('catalog/getCatalog', body);
+        const {categories, products, error} = await api.post('catalog/getCatalog', body);
+
+        // временная мера, наверное. Бек всегда отдает 200, даже если ошибка...Не помню зачем сделала так
+        if (error) {
+          alert({type: 'error', title: 'Ошибка при получении каталога!'});
+        }
 
         this.setCategories(categories);
         this.setProducts(products);

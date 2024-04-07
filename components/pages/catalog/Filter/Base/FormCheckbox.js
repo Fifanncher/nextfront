@@ -6,24 +6,27 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 const FormCheckbox = (props) => {
-  const {checked, onChange, name, id, disabled, img} = props;
+  const {checked, onChange, title, id, disabled, img} = props;
 
   const handleChecked = (evt) => {
     if (onChange) {
-      onChange(evt.target.checked, {name, id});
+      onChange(evt.target.checked, {title, id});
     }
   };
 
-  return !disabled && (
-    <FormControlLabel
+  if(disabled){
+    return null
+  }
+
+  return <FormControlLabel
       className={s.checkboxControl}
       key={id}
       control={(img ? (
         <div
-          onClick={() => !disabled && onChange(!checked, {name, id})}
+          onClick={() => !disabled && onChange(!checked, {title, id})}
           className={cn(s.imgCheckbox, {[s.checked]: checked, [s.disabled]: disabled})}
         >
-          <img src={img} alt={name} />
+          <img src={img} alt={title} />
         </div>
       ) : (
         <Checkbox
@@ -37,10 +40,8 @@ const FormCheckbox = (props) => {
         />
       )
       )}
-      label={name}
+      label={title}
     />
-  ) || null;
-
 };
 
 FormCheckbox.propTypes = {

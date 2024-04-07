@@ -7,53 +7,42 @@ const isChecked = (checked, key, value) => !!checked[`${key}-${value}`];
 const isDisabled = (disabled, key, value) => disabled[`${key}-${value}`];
 
 // eslint-disable-next-line react/display-name
-const Fields = ({checked, unit, disabled, values, setValue, setPrice, setPricePath, setRange, setRangePath}) => (key) => {
-  if (key === 'price') {
-    return (
-      <Price
-        checked={checked}
-        onChange={setPrice}
-        onSave={setPricePath}
-        unit={unit}
-      />
-    );
-  }
+const Fields = ({checked, unit, disabled, setValue, setPrice, setPricePath, setRange, setRangePath}) =>
+  ({name, type, values, postfix}) => {
+    if (name === 'price') {
+      return (
+        <Price
+          checked={checked}
+          onChange={setPrice}
+          onSave={setPricePath}
+          unit={unit}
+        />
+      );
+    }
 
-  if (key.includes('Range')) {
-    return (
-      <Range
-        name={key}
-        checked={checked}
-        onChange={setRange}
-        onSave={setRangePath}
-        unit={'мм'}
-      />
-    );
-  }
+    if (type === 'range') {
+      return (
+        <Range
+          name={name}
+          checked={checked}
+          onChange={setRange}
+          onSave={setRangePath}
+          unit={'мм'}
+        />
+      );
+    }
 
-  if (['isSale', 'substrateThickness', 'isPopular', 'forPainting'].includes(key)) {
-    return (
-      <FormCheckbox
-        checked={isChecked(checked, key, 1)}
-        name={'Да'}
-        id={1}
-        onChange={setValue(key)}
-      />
-    );
-  }
-
-  return values[key]?.slice().sort((a, b) => a.name > b.name ? 1 : -1)
-    .map(({id, name, img}) => (
+    return values?.map(({id, title, img}) => (
       <FormCheckbox
         img={img}
-        checked={isChecked(checked, key, id)}
+        checked={isChecked(checked, name, id)}
         key={id}
-        name={name}
+        title={postfix ? `${title} ${postfix}` : title}
         id={id}
-        disabled={isDisabled(disabled, key, id)}
-        onChange={setValue(key)}
+        disabled={isDisabled(disabled, name, id)}
+        onChange={setValue(name)}
       />
     ));
-};
+  };
 
 export default Fields;

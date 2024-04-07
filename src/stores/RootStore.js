@@ -1,16 +1,13 @@
 import {observable, action, computed} from 'mobx';
 import {DoorsStore} from './Filter/DoorsStore';
-import {FloorStore} from './Filter/FloorStore';
 import {CatalogStore} from './CatalogStore';
 import PopularStore from './PopularStore';
 import {PageStore} from './CatalogStore/PageStore';
 import {ProductStore} from './ProductStore';
 import {ArticlesStore} from './ArticlesStore';
-import {KeramogranitStore} from './Filter/KeramogranitStore';
-import {SportStore} from './Filter/SportStore';
 import {HomeStore} from './HomeStore';
 import ServicesStore from './ServicesStore';
-import {DefaultStore} from './Filter/DefaultStore';
+import {BaseFilterStore} from './Filter/Base';
 
 class RootStore {
     @observable stores = {};
@@ -30,22 +27,8 @@ class RootStore {
       switch (this.category) {
         case 'doors':
           return this.DoorsStore;
-        case 'keramogranit':
-          return this.KeramogranitStore;
-        case 'quartzvinyl':
-        case 'quartzvinyl_zamkovay':
-        case 'quartzvinyl_kleevay':
-        case 'laminate':
-        case 'probkovoe_pokrytie':
-        case 'linoleum':
-          return this.FloorStore;
-        case 'sport':
-          return this.SportStore;
-        case 'kley':
-        case 'napolnyy_plintus':
-          return this.DefaultStore;
         default:
-          return {};
+          return this.BaseFilterStore;
       }
     }
 
@@ -79,20 +62,8 @@ class RootStore {
       return this.getStore('DoorsStore', DoorsStore);
     }
 
-    get SportStore() {
-      return this.getStore('SportStore', SportStore);
-    }
-
-    get DefaultStore() {
-      return this.getStore('DefaultStore', DefaultStore);
-    }
-
-    get KeramogranitStore() {
-      return this.getStore('KeramogranitStore', KeramogranitStore);
-    }
-
-    get FloorStore() {
-      return this.getStore('FloorStore', FloorStore);
+    get BaseFilterStore() {
+      return this.getStore('BaseFilterStore', BaseFilterStore);
     }
 
     get PageStore() {

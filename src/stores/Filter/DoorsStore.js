@@ -1,122 +1,90 @@
-import {action, computed, makeObservable, toJS} from 'mobx';
+import {action, computed, override, makeObservable, toJS} from 'mobx';
 import {BaseFilterStore} from './Base';
-import Router from "next/router";
-import {priceUnit} from "../../enums";
+import Router from 'next/router';
 
 export class DoorsStore extends BaseFilterStore {
-    constructor(RootStore) {
-        super(RootStore);
-        this.unitPrice = '₽';
+  constructor(RootStore) {
+    super(RootStore);
+    this.defaultUnitPrice = '₽';
 
-        makeObservable(this);
-    }
-
-    fieldsLabel = {
-        collectionId: 'Коллекция',
-        finishingMaterial: 'Цвет покрытия',
-        brandId: 'Фабрика',
-        isPopular: 'Хит продаж',
-        price: 'Цена',
-        isSale: 'Со скидкой'
-    };
-
-    @computed get brands() {
-        return this.values.brandId;
-    }
-
-    @computed get collections() {
-        return this.values.collectionId;
-    }
+    makeObservable(this);
+  }
 
     @computed get finishingMaterials() {
-        return this.values.finishingMaterial;
+    return this.fieldsByName.finishingMaterial;
+  }
+
+    @override async clearCheckedCollections() {
+      const params = toJS(Router.query);
+      const colId = this.collections.name;
+      const finId = this.finishingMaterials.name;
+
+      delete params[colId];
+      delete params[finId];
+
+      await this.RouterStore.push({
+        pathname: this.RouterStore.pathname,
+        query: params
+      });
+
+      this.setToKey('checked', colId, false);
+      this.setToKey('checked', finId, false);
+
+      this.chips.delete(colId);
+      this.chips.delete(finId);
     }
-
-    @action clearCheckedCollections = async () => {
-        const params = toJS(Router.query);
-
-        if (!'collectionId' in params) {
-            return
-        }
-
-        delete params['collectionId'];
-        delete params['finishingMaterial'];
-
-        await this.RouterStore.push({
-            pathname: this.RouterStore.pathname,
-            query: params
-        })
-
-        this.setToKey('checked', 'collectionId', false);
-        this.setToKey('checked', 'finishingMaterial', false);
-
-        this.chips.delete('collectionId');
-        this.chips.delete('finishingMaterial');
-    };
 
     @action disableFinishingByBrandId = (brandId, checked) => {
-        const brandIds = Object.keys(this.checked)
-            .filter((key) => key.indexOf('brandId') > -1 && this.checked[key])
-            .map((key) => Number(key.split('-')[1]));
+      const brandIds = Object.keys(this.checked)
+        .filter((key) => key.indexOf(this.brands.name) > -1 && this.checked[key])
+        .map((key) => Number(key.split('-')[1]));
 
-        // Если ничего не выбрано в брендах, то все коллекции по умолчанию можно тыкать
-        if (!brandIds.length) {
-            this.setToKey('disabled', 'collectionId', false);
+      // Если ничего не выбрано в брендах, то все коллекции по умолчанию можно тыкать
+      if (!brandIds.length) {
+        this.setToKey('disabled', this.collections.name, false);
 
-            return;
-        }
+        return;
+      }
 
-        this.finishingMaterials.forEach((material) => {
-            const brId = material.brandId;
+      this.finishingMaterials.values.forEach((material) => {
+        const brIds = material.brandId || [];
 
-            let state;
+        const hasValue = brandIds.some((brId) => brIds.includes(brId));
 
-            if (checked) {
-                // Дизейблим если бренд текущего элемента не был выбран в фильтре
-                state = !brandIds.includes(brId) && brId !== brandId;
-            } else {
-                // Если бренд в фильтре был выбран, а потом чекбокс убрали,
-                // то необходимо снова задизейблить
-                state = !brandIds.includes(brandId) && brId === brandId;
-            }
-
-            this.setDisabled('finishingMaterial', material.id, state);
-        });
+        this.setDisabled(this.finishingMaterials.name, material.id, !hasValue);
+      });
     };
 
-    @action initDisabled() {
-        const disabled = {};
-        const brandIds = Object.keys(this.checked)
-            .filter((key) => key.indexOf('brandId') > -1 && this.checked[key])
-            .map((key) => Number(key.split('-')[1]));
+    initDisabled() {
+      const brandIds = Object.keys(this.checked)
+        .filter((key) => key.indexOf(this.brands.name) > -1 && this.checked[key])
+        .map((key) => Number(key.split('-')[1]));
 
-        if (!brandIds.length) {
-            return
-        }
+      if (!brandIds.length) {
+        return;
+      }
 
-        this.collections.forEach((collection) => {
-            const brId = collection.brandId;
-            let state = !brandIds.includes(brId);
+      this.collections.values.forEach((collection) => {
+        const brId = collection.brandId;
+        const state = !brandIds.includes(brId);
 
-            disabled[`collectionId-${collection.id}`] = state;
-        });
+        this.setDisabled(this.collections.name, collection.id, state);
+      });
 
-        this.finishingMaterials.forEach((collection) => {
-            const brId = collection.brandId;
-            let state = !brandIds.includes(brId);
+      this.finishingMaterials.values.forEach((collection) => {
+        const brIds = collection.brandId;
 
-            disabled[`collectionId-${collection.id}`] = state;
-        });
+        const hasValue = brandIds.some((brId) => brIds.includes(brId));
 
-        this.disabled = disabled;
+        this.setDisabled(this.finishingMaterials.name, collection.id, !hasValue);
+      });
     }
 
-
-    beforeValueCheck = async (key, {id}, checked) => {
-        if (key === 'brandId') {
-            await this.clearCheckedCollections();
-            this.disableFinishingByBrandId(id, checked);
-            this.disableCollectionsByBrandId(id, checked);
-        }
+    afterValueCheck = (key, {id}, checked) => {
+      if (key === this.brands.name) {
+        this.clearCheckedCollections();
+        this.disableFinishingByBrandId(id, checked);
+        this.disableCollectionsByBrandId(id, checked);
+      }
     };
 }

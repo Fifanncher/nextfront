@@ -3,7 +3,7 @@ module.exports = {
     const result = {};
 
     if (!array || !array.length) {
-      return;
+      return {};
     }
 
     array.forEach((item) => {

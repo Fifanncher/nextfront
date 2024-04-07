@@ -4,7 +4,6 @@ import styles from './inputSearchMenu.module.scss';
 import {InputBase} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import cn from 'classnames';
-import classNames from 'classnames';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '../Button';
 
@@ -13,7 +12,8 @@ import Button from '../Button';
     searchValue: RouterStore.searchValue,
     search: RouterStore.search,
     setValue: RouterStore.setValue,
-    setCategoryMerge: RootStore.setCategoryMerge
+    setCategoryMerge: RootStore.setCategoryMerge,
+    clearSearch: RouterStore.clearSearch
   };
 })
 @observer
@@ -48,7 +48,11 @@ class InputSearch extends Component {
     }
 
     closeSearch = () => {
+      this.props.clearSearch();
+      this.props.setValue({target: {value: ''}});
+
       this.setState({isOpen: false});
+      this.props.setCategoryMerge(null, null);
     }
 
     render() {
@@ -62,7 +66,7 @@ class InputSearch extends Component {
             onClick={!isOpen && this.openSearch || null}
           />
           <div
-            className={classNames({[styles.isHide]: !isOpen}, styles.input)}
+            className={cn({[styles.isHide]: !isOpen}, styles.input)}
           >
             <SearchIcon
               className={styles.iconSearch}

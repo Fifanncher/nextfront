@@ -114,7 +114,6 @@ class ProductStore {
       this.setArticles(articles);
     } catch(e) {
       this.setArticles([]);
-      console.log(e);
     }
   };
 }

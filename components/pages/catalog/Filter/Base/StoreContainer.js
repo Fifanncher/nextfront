@@ -1,9 +1,15 @@
 import React from 'react';
-import {inject, Provider} from 'mobx-react';
+import {inject, observer} from 'mobx-react';
 import Fields from './renderFields';
 import FilterView from '../FilterView';
+import {status as statusEnum} from '../../../../../src/enums';
 
-@inject('RootStore')
+@inject(({RootStore: {ActiveFilterStore}}) => {
+  return {
+    fields: ActiveFilterStore.fields || [],
+    status: ActiveFilterStore.status
+  };
+}) @observer
 class FilterViewHOC extends React.Component {
   constructor(props) {
     super(props);
@@ -21,9 +27,15 @@ class FilterViewHOC extends React.Component {
   }
 
   render() {
+    const {fields, status} = this.props;
+
+    if (status === statusEnum.SUCCESS && !fields.length) {
+      return null;
+    }
+
     return (
       <FilterView>
-        <Fields addFields={this.props.addFields} />
+        <Fields />
       </FilterView>
     );
   }
