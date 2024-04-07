@@ -32,6 +32,10 @@ const Fields = ({checked, unit, disabled, setValue, setPrice, setPricePath, setR
       );
     }
 
+    if(!Array.isArray(values)){
+      return null
+    }
+
     return values?.map(({id, title, img}) => (
       <FormCheckbox
         img={img}
