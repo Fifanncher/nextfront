@@ -230,9 +230,13 @@ class CatalogStore {
     getArticles = async() => {
       try {
         const articles = await api.post('articles/getArticles',
-          {category: this.category, withMedia: true});
+          {
+            category: this.category,
+            withMedia: true,
+            limit: 10
+          });
 
-        this.setArticles(articles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+        this.setArticles(articles);
       } catch(e) {
         console.log(e);
       }
