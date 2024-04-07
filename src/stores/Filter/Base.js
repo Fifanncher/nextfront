@@ -240,7 +240,7 @@ export class BaseFilterStore {
 
           _checked[_key] = true;
 
-          const item = this.fieldsByName[key]?.values.find(({id}) => Number(id) === Number(val));
+          const item = this.fieldsByName[key]?.values?.find(({id}) => Number(id) === Number(val));
 
           item && _chips.set(_key, {
             fieldName: this.fieldsByName[key]?.title,
