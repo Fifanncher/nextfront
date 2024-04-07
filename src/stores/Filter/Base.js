@@ -87,7 +87,7 @@ export class BaseFilterStore {
     await this.setSelection(params.selection);
   };
 
-  @action  setSelection = async(selectionAlias) => {
+  @action setSelection = async(selectionAlias) => {
     if (!selectionAlias) {
       this.selection = {};
 
@@ -240,6 +240,9 @@ export class BaseFilterStore {
 
           _checked[_key] = true;
 
+          if (!this.fieldsByName[key]?.values?.find) {
+            console.log(key, this.fieldsByName[key]?.values);
+          }
           const item = this.fieldsByName[key]?.values?.find(({id}) => Number(id) === Number(val));
 
           item && _chips.set(_key, {
@@ -253,6 +256,10 @@ export class BaseFilterStore {
         const _key = this.getKey(key, value);
 
         _checked[_key] = true;
+
+        if (!this.fieldsByName[key]?.values?.find) {
+          console.log(key, this.fieldsByName[key]?.values);
+        }
 
         let item = this.fieldsByName[key]?.values?.find(({id}) => Number(id) === Number(value));
 
