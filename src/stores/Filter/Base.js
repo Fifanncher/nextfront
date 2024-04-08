@@ -230,19 +230,29 @@ export class BaseFilterStore {
 
       if (key === 'price') {
         this.initPrice(value, _chips, _checked);
-      } else if (key.includes('Range')) {
+        continue;
+      }
+
+      if (key.includes('Range')) {
         this.initRange(key, value, _chips, _checked);
-      } else if (key === 'selection') {
+        continue;
+      }
+
+      if (key === 'selection') {
         selection = value;
-      } else if (Array.isArray(value)) {
+        continue;
+      }
+
+      if (!this.fieldsByName[key]) {
+        continue;
+      }
+
+      if (Array.isArray(value)) {
         value.forEach((val) => {
           const _key = this.getKey(key, val);
 
           _checked[_key] = true;
 
-          if (!this.fieldsByName[key]?.values?.find) {
-            console.log(key, this.fieldsByName[key]?.values);
-          }
           const item = this.fieldsByName[key]?.values?.find(({id}) => Number(id) === Number(val));
 
           item && _chips.set(_key, {
@@ -252,14 +262,13 @@ export class BaseFilterStore {
             val: item.id
           });
         });
-      } else {
+        continue;
+      }
+
+      if (this.fieldsByName[key]) {
         const _key = this.getKey(key, value);
 
         _checked[_key] = true;
-
-        if (!this.fieldsByName[key]?.values?.find) {
-          console.log(key, this.fieldsByName[key]?.values);
-        }
 
         let item = this.fieldsByName[key]?.values?.find(({id}) => Number(id) === Number(value));
 
@@ -276,6 +285,8 @@ export class BaseFilterStore {
           key,
           val: item.id
         });
+
+        continue;
       }
     }
 
@@ -311,7 +322,8 @@ export class BaseFilterStore {
   }
 
   // Тут можно переопределить логику после выбора элемента
-  @action async clearCheckedCollections() {
+  @action
+  async clearCheckedCollections() {
     const params = toJS(Router.query);
     const colId = this.collections.name;
 
