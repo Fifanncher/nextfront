@@ -122,7 +122,7 @@ class ProductView extends React.Component {
           <div className={s.row} key={name}>
             <div>
               <span className={s.key}>{title}</span>
-              <span> {values[name]}</span>
+              <span className={s.val}> {values[name]}</span>
             </div>
           </div>
         );

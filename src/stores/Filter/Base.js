@@ -322,8 +322,7 @@ export class BaseFilterStore {
   }
 
   // Тут можно переопределить логику после выбора элемента
-  @action
-  async clearCheckedCollections() {
+  @action async clearCheckedCollections() {
     const params = toJS(Router.query);
     const colId = this.collections.name;
 
