@@ -11,7 +11,7 @@ export class DoorsStore extends BaseFilterStore {
   }
 
     @computed get finishingMaterials() {
-    return this.fieldsByName.finishingMaterial;
+      return this.fieldsByName.finishingMaterial || null;
   }
 
     @override async clearCheckedCollections() {

@@ -461,7 +461,7 @@ export class BaseFilterStore {
       this.setChips(
         'price',
         {
-          name: label
+          title: label
         },
         true
       );
