@@ -58,7 +58,7 @@ class Delivery extends React.Component {
                             <Typography variant={'subtitle2'} className={s.title}>
                                 <LocalShippingIcon className={s.icon}/> Доставка по
                                 городу </Typography>
-                            <Typography variant={'subtitle2'}> 700 ₽</Typography>
+                            <Typography variant={'subtitle2'}> 900 ₽</Typography>
                         </div>
                         <div className={s.headerContent}>
                             <div>
