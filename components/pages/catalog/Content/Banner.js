@@ -29,7 +29,7 @@ const items = [
     mobileBackground: 'https://master-pola.com/dashboard/uploads/alpine_flor_mob_0_75x_c81dc5dc8e.png'
   },
   {
-    background: 'https://master-pola.com/dashboard/uploads/w_39ae72262f.png',
+    background: 'https://master-pola.com/dashboard/uploads/wr_0952bb0070.png',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/Bez_imeni_1_mob_3402fd1ca4.png',
   },
   {
