@@ -62,15 +62,15 @@ const items = [
     mobileBackground: 'https://master-pola.com/dashboard/uploads/mob_dveri_f4720179dd.png'
   },
   {
-    background: 'https://master-pola.com/dashboard/uploads/Bez_imeni_3_a80280df16.jpg',
-    title: 'Влагостойкий ламинат Alsafloor',
+    background: 'https://master-pola.com/dashboard/uploads/13_5_2_2_2_67c9cd260e.png',
+    title: 'Шикарная ёлочка AlpineFloor',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/alsa_mob_35e62f9da8.jpg',
-    text: 'Французские стандарты качества - влагостойкость 24 часа',
+    text: 'Одно из самых красивых напольных покрытий',
     justifyContent: 'center',
     textButton: 'Смотреть все дизайны',
-    selection: 'alsafloor',
-    link: '/catalog/laminate?selection=alsafloor',
-    category: 'laminate',
+    selection: 'alpinefloor',
+    link: '/catalog/quartzvinyl?selection=alpinefloor',
+    category: 'quartzvinyl',
     mobJustifyContent: 'flex-end'
   },
   {
