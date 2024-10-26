@@ -66,9 +66,9 @@ const items = [
     title: 'Шикарная ёлочка AlpineFloor',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/alsa_mob_35e62f9da8.jpg',
     text: 'Одно из самых красивых напольных покрытий',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     textButton: 'Смотреть все дизайны',
-    selection: 'alpinefloor',
+    selection: 'alpinefloor_herringbone',
     link: '/catalog/quartzvinyl?selection=alpinefloor',
     category: 'quartzvinyl',
     mobJustifyContent: 'flex-end'
