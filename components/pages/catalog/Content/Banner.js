@@ -69,7 +69,7 @@ const items = [
     justifyContent: 'flex-end',
     textButton: 'Смотреть все дизайны',
     selection: 'alpinefloor_herringbone',
-    link: '/catalog/quartzvinyl?selection=alpinefloor',
+    link: '/catalog/quartzvinyl?selection=alpinefloor_herringbone',
     category: 'quartzvinyl',
     mobJustifyContent: 'flex-end'
   },
