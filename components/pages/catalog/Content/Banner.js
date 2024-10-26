@@ -58,7 +58,7 @@ const items = [
     category: 'quartzvinyl_zamkovay'
   },
   {
-    background: 'https://master-pola.com/dashboard/uploads/Artboard_1_cbc63f05b8.png',
+    background: 'https://master-pola.com/dashboard/uploads/d_c9769cee66.png',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/mob_dveri_f4720179dd.png'
   },
   {
