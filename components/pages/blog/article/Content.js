@@ -42,7 +42,7 @@ class Content extends React.Component {
     }
 
     get services() {
-        const {services} = this.props.article?.relations;
+        const {services} = this.props.article?.relations || {};
 
         if (!services?.length) {
             return <div/>
