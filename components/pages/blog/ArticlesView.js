@@ -6,13 +6,14 @@ import AppsIcon from '@mui/icons-material/Apps';
 import Worker from '../../Icons/Worker';
 import classNames from "classnames";
 import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import {Tab, Tooltip} from '@mui/material';
 import Image from "next/image";
 import Skeleton from '@mui/material/Skeleton';
 import {posts} from "../../../src/enums";
 import StoreIcon from '@mui/icons-material/Store';
 import {Box} from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
+import HomeIcon from '@mui/icons-material/Home';
 
 @inject(({RootStore: {ArticlesStore}}) => {
     return {
@@ -23,9 +24,10 @@ import DoneIcon from '@mui/icons-material/Done';
 })
 class ArticlesView extends React.Component {
     filterItems = [
-        {value: 'all', Icon: AppsIcon},
-        {value: posts.WORKS, Icon: Worker},
-        {value: posts.PRODUCT, Icon: StoreIcon},
+        {value: 'all', Icon: AppsIcon, title: 'Все'},
+        {value: posts.WORKS, Icon: Worker, title: 'Работы'},
+        {value: posts.PRODUCT, Icon: StoreIcon, title: 'Салон'},
+        {value: posts.REVIEWS, Icon: HomeIcon, title: 'Отзывы'},
     ]
 
     render() {
@@ -57,12 +59,15 @@ class ArticlesView extends React.Component {
                     onChange={setFilter}
                     TabIndicatorProps={{style: {background: 'black', height: '1px'}}}
                     variant="fullWidth" className={s.filter} value={filter}>
-                    {this.filterItems.map(({value, Icon}) =>
-                        <Tab label={
-                            <Icon
+                    {this.filterItems.map(({title, value, Icon}) =>
+                      <Tooltip  title={title} placement="top">
+                          <Tab label={
+                              <Icon
                                 className={classNames(s.icon, ({[s.activeIcon]: value === filter}))}/>
-                        }
-                             value={value} key={value}/>)
+                          }
+                               value={value} key={value}/>
+                      </Tooltip>
+                         )
                     }
                 </Tabs>
                 <div className={s.cards}>

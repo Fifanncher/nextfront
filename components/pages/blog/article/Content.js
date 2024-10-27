@@ -41,7 +41,6 @@ class Content extends React.Component {
         return services.map((item) => (<CardService key={item.id} {...item}/>));
     }
 
-
     get services() {
         const {services} = this.props.article?.relations;
 
@@ -82,6 +81,11 @@ class Content extends React.Component {
             case  'short':
                 const video = media[0];
                 const _src = video.type === 'youtube' ? 'https://www.youtube-nocookie.com/watch?v=' + video.src : video.src;
+
+                if(!video.src){
+                    return null
+                }
+
                 return <PlayerView
                     classNameContainer={s[this.mediaPositionPlayerContainerClass[mediaPosition]]}
                     classNamePlayer={s[this.mediaPositionPlayerClass[mediaPosition]]}
@@ -164,7 +168,7 @@ class Content extends React.Component {
                 <div className={s[this.mediaPositionClass[mediaPosition]]}>
                     {this.media}
                     <div>
-                        <Box padding={'10px 20px'}>
+                        <Box padding={'0 20px 10px 20px'}>
                             <Typography variant="h5" component="h2" className={s.title}>
                                 {title}
                             </Typography>

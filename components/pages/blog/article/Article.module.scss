@@ -30,7 +30,7 @@
 }
 
 .sidebar {
-  margin-right: 90px;
+  margin-right: 60px;
 }
 
 .detailsCards {
@@ -45,7 +45,7 @@
   max-width: 300px;
   display: grid;
   grid-template-columns:  minmax(250px, 1fr);
-  margin: 20px 0;
+  margin-bottom: 20px;
   grid-row-gap: 20px;
 }
 
@@ -187,7 +187,7 @@
 }
 
 .verticalContainerPlayer {
-  min-width: 290px;
+  min-width: 410px;
   position: relative;
 }
 
@@ -202,7 +202,7 @@
 
   iframe {
     width: 100%;
-    min-height: 520px;
+    min-height: 620px;
   }
 }
 

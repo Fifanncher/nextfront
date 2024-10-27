@@ -21,6 +21,7 @@ const finishing = {
 const posts = {
   WORKS: 1,
   PRODUCT: 2,
+  REVIEWS: 4,
   OTHER: 3
 };
 

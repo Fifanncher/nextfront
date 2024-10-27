@@ -66,7 +66,6 @@ class ArticlesView extends React.Component {
                             }}
                     ></script>
                 </Head>
-                <Title title={'Блог Мастера'} pathname={'/blog'}/>
                 <div className={s.content}>
                     <div className={s.sidebar}>
                         <div className={s.cards}>
