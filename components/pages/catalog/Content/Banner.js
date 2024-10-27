@@ -32,16 +32,16 @@ const items = [
     background: 'https://master-pola.com/dashboard/uploads/wr_0952bb0070.png',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/Bez_imeni_1_mob_3402fd1ca4.png',
   },
-  {
-    background: 'https://master-pola.com/dashboard/uploads/Bez_imeni_5_93ac65f165.png',
-    mobileBackground: 'https://master-pola.com/dashboard/uploads/Bez_imeni_5mob_d61f14260e.png',
-    textButton: 'Смотреть дизайны',
-    selection: 'alpinefloor',
-    link: '/catalog/quartzvinyl?selection=alpinefloor',
-    category: 'quartzvinyl',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end'
-  },
+  // {
+  //   background: 'https://master-pola.com/dashboard/uploads/Bez_imeni_5_93ac65f165.png',
+  //   mobileBackground: 'https://master-pola.com/dashboard/uploads/Bez_imeni_5mob_d61f14260e.png',
+  //   textButton: 'Смотреть дизайны',
+  //   selection: 'alpinefloor',
+  //   link: '/catalog/quartzvinyl?selection=alpinefloor',
+  //   category: 'quartzvinyl',
+  //   alignItems: 'flex-start',
+  //   justifyContent: 'flex-end'
+  // },
   {
     background: 'https://master-pola.com/dashboard/uploads/art_4842258ffb.png',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/art_mob_aae1f7fd96.png',
@@ -54,7 +54,7 @@ const items = [
     category: 'quartzvinyl_zamkovay'
   },
   {
-    background: 'https://master-pola.com/dashboard/uploads/d_c9769cee66.png',
+    background: 'https://master-pola.com/dashboard/uploads/lainika_c95ac3a078.png',
     mobileBackground: 'https://master-pola.com/dashboard/uploads/mob_dveri_f4720179dd.png'
   },
   {
