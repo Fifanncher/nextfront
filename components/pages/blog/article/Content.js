@@ -58,9 +58,9 @@ class Content extends React.Component {
     }
 
     get products() {
-        const {products} = this.props.article?.relations;
+        const {products} = this.props.article?.relations || {};
 
-        if (!products.length) {
+        if (!products?.length) {
             return <div/>
         }
         return <div>
@@ -161,6 +161,11 @@ class Content extends React.Component {
 
     render() {
         const {article} = this.props;
+
+        if(!article){
+            return null
+        }
+
         const {title, place, content, createdAt, mediaPosition, watchCount, media = []} = article;
 
         return (
