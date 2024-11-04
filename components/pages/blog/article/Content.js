@@ -18,6 +18,7 @@ import 'swiper/css/a11y';
 import PlaceIcon from "@mui/icons-material/Place";
 import CardProduct from "../../../Cards/Card";
 import CardService from "../../../ServiceCard";
+import VkIframe from './VkIframe';
 
 require('dayjs/locale/ru');
 
@@ -80,11 +81,18 @@ class Content extends React.Component {
             case 'video':
             case  'short':
                 const video = media[0];
-                const _src = video.type === 'youtube' ? 'https://www.youtube-nocookie.com/watch?v=' + video.src : video.src;
 
                 if(!video.src){
                     return null
                 }
+
+                if(video.type === 'vk'){
+                    return <VkIframe
+                      src = {video.src}
+                    />
+                }
+
+                const _src = video.type === 'youtube' ? 'https://www.youtube-nocookie.com/watch?v=' + video.src : video.src;
 
                 return <PlayerView
                     classNameContainer={s[this.mediaPositionPlayerContainerClass[mediaPosition]]}

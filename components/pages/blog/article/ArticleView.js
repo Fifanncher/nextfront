@@ -2,13 +2,11 @@ import React from 'react';
 import {inject} from 'mobx-react';
 import s from './Article.module.scss';
 import ArticleContent from './Content';
-import Typography from '@mui/material/Typography';
 import Cards from "../../../NewsCards/Cards";
 import NextLink from 'next/link';
 import Button from '../../../Button';
 import dayjs from 'dayjs';
 import Head from "next/head";
-import Title from "../../../Title";
 
 require('dayjs/locale/ru');
 

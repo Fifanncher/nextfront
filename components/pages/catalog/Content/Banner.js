@@ -67,7 +67,7 @@ const items = [
     selection: 'alpinefloor_herringbone',
     link: '/catalog/quartzvinyl?selection=alpinefloor_herringbone',
     category: 'quartzvinyl',
-    mobJustifyContent: 'flex-end'
+    mobJustifyContent: 'flex-start'
   },
   {
     background: 'https://master-pola.com/dashboard/uploads/podplirtky_0740dc57f2.jpg',
