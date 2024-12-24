@@ -53,6 +53,7 @@ export default function Menu() {
       <header className={styles.container}>
         <div className={styles.header}>
           <MobileHeader />
+          <Garland />
           {/*<div className={styles.headerBackground}/>*/}
           <div className={styles.headerContent}>
             <div className={styles.logoBlock}>

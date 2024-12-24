@@ -40,7 +40,7 @@ $light-off-opacity: 0.4;
     animation-duration: 2s;
 
     &:nth-child(2n+1) {
-      background: rgb(9, 72, 182);
+      background: rgb(33, 92, 157);
       box-shadow: 0px $globe-height/6 $globe-width*2 $globe-spread rgba(76, 144, 212, 0.5);
       animation-name: flash-2;
       animation-duration: 0.4s;
@@ -106,8 +106,8 @@ $light-off-opacity: 0.4;
 
 @keyframes flash-2 {
   0%, 100% {
-    background: rgb(25, 101, 189);
-    box-shadow: 0px $globe-height/6 $globe-width*2 $globe-spread rgb(60, 108, 201);
+    background: rgb(64, 120, 185);
+    box-shadow: 0px $globe-height/6 $globe-width*2 $globe-spread rgb(48, 86, 157);
   }
   50% {
     background: rgba(9, 60, 240, $light-off-opacity);
