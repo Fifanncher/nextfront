@@ -15,6 +15,18 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import NextLink from 'next/link';
 import Cards from '../../NewsCards/FullCards';
 
+const getValue = (value, postfix) => {
+  if(typeof value === 'boolean'){
+    return value ? 'да' : 'нет';
+  }
+
+  if(Array.isArray(value)){
+    return value.map(val => `${val}${postfix || ''}` ).join(', ')
+  }
+
+  return `${value}${postfix || ''}`
+}
+
 @inject(({RootStore: {ProductStore, deviceType}}) => {
   return {
     values: toJS(ProductStore.values || {}),
@@ -40,7 +52,7 @@ class ProductView extends React.Component {
                       {title}
                   </span>
                 <span>
-                   {[values[name]].flat().map(val => `${val}${postfix || ''}` ).join(', ')}
+                   {getValue(values[name],postfix)}
                 </span>
               </div>
             </div>
@@ -123,7 +135,7 @@ class ProductView extends React.Component {
             <div>
               <span className={s.key}>{title}</span>
               <span className={s.val}>
-                        {[values[name]].flat().map(val => `${val}${postfix || ''}` ).join(', ')}
+                      {getValue(values[name],postfix)}
               </span>
             </div>
           </div>
