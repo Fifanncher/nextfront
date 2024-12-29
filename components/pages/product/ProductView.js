@@ -31,7 +31,7 @@ class ProductView extends React.Component {
     const rows = [];
 
     fields.filter(({type}) => type === 'isMain')
-      .forEach(({title, name}) => {
+      .forEach(({title, name, postfix}) => {
         if (values[name]) {
           rows.push(
             <div className={s.row} key={name}>
@@ -40,7 +40,7 @@ class ProductView extends React.Component {
                       {title}
                   </span>
                 <span>
-                    {values[name]}
+                   {[values[name]].flat().map(val => `${val}${postfix || ''}` ).join(', ')}
                 </span>
               </div>
             </div>
@@ -116,13 +116,15 @@ class ProductView extends React.Component {
     const {values, fields} = this.props;
     const rows = [];
 
-    fields.forEach(({title, name}) => {
+    fields.forEach(({title, name, postfix}) => {
       if (values[name] && title) {
         rows.push(
           <div className={s.row} key={name}>
             <div>
               <span className={s.key}>{title}</span>
-              <span className={s.val}> {values[name]}</span>
+              <span className={s.val}>
+                        {[values[name]].flat().map(val => `${val}${postfix || ''}` ).join(', ')}
+              </span>
             </div>
           </div>
         );
