@@ -10,6 +10,13 @@ $light-off-opacity: 0.4;
   height: 10px;
 }
 
+.text {
+  color: white;
+  background: $red;
+  width: 100%;
+  @include paddingStandard;
+}
+
 .lightrope {
   text-align: center;
   white-space: nowrap;
