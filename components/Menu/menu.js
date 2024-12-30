@@ -52,8 +52,8 @@ export default function Menu() {
     <React.Fragment>
       <header className={styles.container}>
         <div className={styles.header}>
-          <MobileHeader />
-          <Garland />
+          <MobileHeader/>
+          <Garland/>
           {/*<div className={styles.headerBackground}/>*/}
           <div className={styles.headerContent}>
             <div className={styles.logoBlock}>
@@ -79,7 +79,7 @@ export default function Menu() {
                 href={'https://2gis.ru/tyumen/firm/70000001041302673?m=65.569066%2C57.099076%2F16'}
                 title='Показать адрес в 2GIS'
               >
-                <NearMeIcon className={styles.icon} />
+                <NearMeIcon className={styles.icon}/>
                 Тюмень, Мельникайте 138а
               </a>
             </div>
@@ -100,13 +100,16 @@ export default function Menu() {
                 />
               </div>
             </div>
-            <BurgerMenu toPage={toPage} menu={menu} />
+            <BurgerMenu toPage={toPage} menu={menu}/>
+          </div>
+          <div className={g.text}>
+            Режим работы в праздничные дни: 31 декабря, 1 - 3 января - <b> выходные дни </b>
           </div>
         </div>
       </header>
       <nav className={styles.menuContainer}>
         <ul className={styles.menu}>
-          <li><InputSearch /></li>
+          <li><InputSearch/></li>
           {
             menu.map(({name, link, Icon}, index) => (
               <li key={link} className={cn({[styles.isActive]: link === pathname})}>
