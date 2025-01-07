@@ -103,7 +103,7 @@ export default function Menu() {
             <BurgerMenu toPage={toPage} menu={menu}/>
           </div>
           <div className={g.text}>
-            Режим работы в праздничные дни: 31 декабря, 1 - 3 января - <b> выходные дни </b>
+            Режим работы в праздничные дни: 7 января - <b> с 10:00 до 18:00 </b>
           </div>
         </div>
       </header>
