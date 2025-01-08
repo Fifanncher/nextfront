@@ -12,8 +12,8 @@ import ViberIcon from '../Icons/ViberIcon';
 import MobileHeader from './MobileHeader';
 import VkIcon from '../Icons/VK';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-// import Garland from './Cristmas';
-// import g from './lightrope.module.scss';
+import Garland from './Cristmas';
+import g from './lightrope.module.scss';
 
 const menu = [
   {name: 'Каталог', important: true, link: '/catalog'},
@@ -53,7 +53,7 @@ export default function Menu() {
       <header className={styles.container}>
         <div className={styles.header}>
           <MobileHeader/>
-          {/*<Garland/>*/}
+          <Garland/>
           {/*<div className={styles.headerBackground}/>*/}
           <div className={styles.headerContent}>
             <div className={styles.logoBlock}>
