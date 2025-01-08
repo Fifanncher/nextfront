@@ -2,7 +2,8 @@
   "name": "nextfront",
   "private": true,
   "scripts": {
-    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && next -p 8081",
+    "dev": "next -p 8081",
+    "release": "git pull && pm2 delete front && npm run build && npm run prodstart",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -37,7 +38,6 @@
     "react-select": "5.2.1",
     "react-youtube": "7.13.1",
     "sass": "1.43.4",
-    "styled-components": "5.3.3",
     "swiper": "8.1.0"
   },
   "devDependencies": {

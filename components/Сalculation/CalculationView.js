@@ -3,8 +3,6 @@ import s from './Callme.module.scss';
 import {Modal, IconButton, Box, Checkbox} from '@mui/material';
 import Button from '../Button';
 import CloseIcon from '@mui/icons-material/Close';
-import MaskedInput from 'react-text-mask';
-import Card from '../Cards/Card';
 import {inject} from 'mobx-react';
 import cn from 'classnames';
 import TextField from '../TextField'
@@ -37,22 +35,6 @@ import PhoneInput from '../Callme/PhoneInput';
     };
 })
 class Callme extends React.Component {
-    textMaskCustom = (props) => {
-        const {inputRef, ...other} = props;
-
-        return (
-            <MaskedInput
-                {...other}
-                // ref={(ref) => {
-                //   inputRef(ref ? ref.inputElement : null);
-                // }}
-                mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-                placeholderChar={'_'}
-                showMask={true}
-            />
-        );
-    }
-
     get fields(){
       const {
         listCalculates,
