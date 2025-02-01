@@ -128,8 +128,8 @@ class ProductView extends React.Component {
     const {values, fields} = this.props;
     const rows = [];
 
-    fields.forEach(({title, name, postfix}) => {
-      if (values[name] && title) {
+    fields.forEach(({title, name, postfix, type}) => {
+      if (values[name] && title && type === 'link') {
         rows.push(
           <div className={s.row} key={name}>
             <div>
@@ -216,18 +216,33 @@ class ProductView extends React.Component {
   }
 
   get linkInterBlock() {
-    const {linkInterior} = this.props.values;
+    const {values, fields} = this.props;
+    const {linkInterior} = values;
+    const linkField = fields.find(({type}) => type === 'link');
 
-    if (!linkInterior) {
+    if (!linkInterior && !values[linkField?.name]) {
       return null;
     }
+
+    if(linkInterior){
+      return <div className={s.linkInterirerBlock}>
+        <a target={'_blank'}
+           rel="noopener noreferrer"
+           href={linkInterior}
+           title="Посмотреть в интерьере"
+        >
+          Посмотреть в интерьере <ArrowRightAltIcon/>
+        </a>
+      </div>;
+    }
+
     return <div className={s.linkInterirerBlock}>
       <a target={'_blank'}
          rel="noopener noreferrer"
-         href={linkInterior}
+         href={values[linkField.name]}
          title="Посмотреть в интерьере"
       >
-        Посмотреть в интерьере <ArrowRightAltIcon/>
+        {linkField.title} <ArrowRightAltIcon/>
       </a>
     </div>;
   }
