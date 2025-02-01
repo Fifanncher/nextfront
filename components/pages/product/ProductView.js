@@ -129,7 +129,7 @@ class ProductView extends React.Component {
     const rows = [];
 
     fields.forEach(({title, name, postfix, type}) => {
-      if (values[name] && title && type === 'link') {
+      if (values[name] && title && type !== 'link') {
         rows.push(
           <div className={s.row} key={name}>
             <div>
