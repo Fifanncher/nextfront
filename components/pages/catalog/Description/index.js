@@ -46,9 +46,9 @@ class DescriptionMain extends React.Component {
                     title: 'Купить ламинат в Тюмени',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/laminate.jpg'}
-                        src={'/laminate.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/laminate.webp'}
+                        src={'/laminate.webp'}
                         width={205}
                         height={270}
                         alt={'Кварцвиниловая плитка, SPC, ПВХ в Тюмени по выгодной цене'}
@@ -154,9 +154,9 @@ class DescriptionMain extends React.Component {
                     title: 'Купить пробковое покрытие в Тюмени',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/probka.jpg'}
-                        src={'/probka.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/probka.webp'}
+                        src={'/probka.webp'}
                         width={205}
                         height={270}
                         alt={'Пробковое покрытие в Тюмени'}
@@ -200,9 +200,9 @@ class DescriptionMain extends React.Component {
                     title: 'Купить напольное покрытие в Тюмени',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/spc2.jpg'}
-                        src={'/spc2.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/spc2.webp'}
+                        src={'/spc2.webp'}
                         width={205}
                         height={270}
                         alt={'Кварцвиниловая плитка, SPC, ПВХ в Тюмени по выгодной цене'}
@@ -236,9 +236,9 @@ class DescriptionMain extends React.Component {
                     title: 'Кварцвиниловая плитка, SPC, ПВХ в Тюмени по выгодной цене',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/spc.jpg'}
-                        src={'/spc.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/spc.webp'}
+                        src={'/spc.webp'}
                         width={205}
                         height={270}
                         alt={'Кварцвиниловая плитка, SPC, ПВХ в Тюмени по выгодной цене'}
@@ -274,9 +274,9 @@ class DescriptionMain extends React.Component {
                     title: 'Замковый кварцвинил, SPC и каменный ламинат в Тюмени по выгодной цене',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/spc.jpg'}
-                        src={'/spc.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/spc.webp'}
+                        src={'/spc.webp'}
                         width={205}
                         height={270}
                         alt={'Замковый кварцвинил, SPC и каменный ламинат в Тюмени по выгодной цене'}
@@ -317,9 +317,9 @@ class DescriptionMain extends React.Component {
                     title: 'Клеевой кварцвинил, винил и LVT в Тюмени по выгодной цене',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/lvt.jpg'}
-                        src={'/lvt.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/lvt.webp'}
+                        src={'/lvt.webp'}
                         width={205}
                         height={270}
                         alt={'Клеевой кварцвинил, винил и LVT в Тюмени по выгодной цене'}
@@ -377,9 +377,9 @@ class DescriptionMain extends React.Component {
                     title: 'Купить межкомнатные двери в Тюмени по выгодной цене',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/doors.jpg'}
-                        src={'/doors.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/doors.webp'}
+                        src={'/doors.webp'}
                         width={205}
                         height={270}
                         alt={'Клеевой кварцвинил, винил и LVT в Тюмени по выгодной цене'}
@@ -416,9 +416,9 @@ class DescriptionMain extends React.Component {
                     title: 'Купить напольный плинтус в Тюмени',
                     media: <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
-                        loader={() => '/plintus.jpg'}
-                        src={'/plintus.jpg'}
+                        blurDataURL="/blur.webp"
+                        loader={() => '/plintus.webp'}
+                        src={'/plintus.webp'}
                         width={205}
                         height={270}
                         alt={' напольный плинтус в Тюмени'}

@@ -1,5 +1,4 @@
 import s from './Blocks.module.scss';
-import doors from '../../../../public/doors.jpg';
 import CatalogCard from '../../../CatalogCard';
 import Button from '../../../Button';
 import NextLink from 'next/link';

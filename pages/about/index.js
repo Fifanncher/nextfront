@@ -45,8 +45,8 @@ const About = () => (
       <div className={s.mediaBlock}>
         <Image
             placeholder={'blur'}
-            blurDataURL="/blur.png"
-            src={'/masterMain.jpg'} layout='fill'
+            blurDataURL="/blur.webp"
+            src={'/masterMain.webp'} layout='fill'
             alt={'О компании'}/>
       </div>
       <div className={s.text}>

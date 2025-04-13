@@ -14,9 +14,9 @@ import VideoBlock from '../../components/VideoBlock';
 
 const media = <Image
     placeholder={'blur'}
-    blurDataURL="/blur.png"
-    loader={() => '/masterMain.jpg'}
-    src={'/masterMain.jpg'}
+    blurDataURL="/blur.webp"
+    loader={() => '/masterMain.webp'}
+    src={'/masterMain.webp'}
     width={250}
     height={270}
     alt={'Монтаж напольных покрытий в Тюмени. Укладка кварцвинила и ламината'}
@@ -39,11 +39,11 @@ const text = <>
 </>;
 
 const _images = [
-    '/services/1.jpg',
-    '/services/4.jpg',
-    '/services/2.jpg',
-    '/services/5.jpg',
-    '/services/6.jpg',
+    '/services/1.webp',
+    '/services/4.webp',
+    '/services/2.webp',
+    '/services/5.webp',
+    '/services/6.webp',
 ];
 
 const _video = [
@@ -134,7 +134,7 @@ class Works extends React.Component {
                 <h2> Опытные и надежные мастера Тюмени </h2>
                 <div className={s.aboutBock}>
                     <div className={s.image}>
-                        <Image src={'/master2.jpg'} layout="fill" priority={true}/>
+                        <Image src={'/master2.webp'} layout="fill" priority={true}/>
                     </div>
                     <div className={s.textAbout}>
                         <div className={s.divider}/>

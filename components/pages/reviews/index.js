@@ -30,8 +30,8 @@ class Delivery extends React.Component {
               <ReviewsCard
                 name={'Асель Тижбаева'}
                 imgs={[
-                  {src: '/reviews/6.jpg'},
-                  {src: '/reviews/7.jpg'}
+                  {src: '/reviews/6.webp'},
+                  {src: '/reviews/7.webp'}
                 ]}
                 date={'11 августа 2023'}
                 text={`Хороший магазин. Консультанты вежливые, помогли при выборе напольного покрытия 👍
@@ -39,9 +39,9 @@ class Delivery extends React.Component {
               />
               <ReviewsCard
                 imgs={[
-                  {src: '/reviews/3.jpg'},
-                  {src: '/reviews/4.jpg'},
-                  {src: '/reviews/5.jpg'}
+                  {src: '/reviews/3.webp'},
+                  {src: '/reviews/4.webp'},
+                  {src: '/reviews/5.webp'}
                 ]}
                 name={'Ирина Кравченко'}
                 date={'28 июля 2023'}
@@ -64,8 +64,8 @@ class Delivery extends React.Component {
               </div>
               <ReviewsCard
                 imgs={[
-                  {src: '/reviews/1.jpg'},
-                  {src: '/reviews/2.jpg'}
+                  {src: '/reviews/1.webp'},
+                  {src: '/reviews/2.webp'}
                 ]}
                 name={'Voldemar Naumov'}
                 date={'14 мая 2023 '}
@@ -80,7 +80,7 @@ class Delivery extends React.Component {
         <div className={s.container}>
           <div>
             <Image
-              src={'/reviews/otzyv.png'}
+              src={'/reviews/otzyv.webp'}
               width={310}
               height={420}
               quality={100}

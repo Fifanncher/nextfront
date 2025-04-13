@@ -67,7 +67,7 @@ class ArticlesView extends React.Component {
           <div className={s.mediaI}>
             <Image
               placeholder={'blur'}
-              blurDataURL='/blur.png'
+              blurDataURL='/blur.webp'
               width='100%'
               height='100%'
               layout='responsive'

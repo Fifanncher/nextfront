@@ -41,7 +41,7 @@ class CardView extends React.Component {
                 <div className={classNames(s.root, classNamesRoot)}>
                             <Image
                                 placeholder={'blur'}
-                                blurDataURL="/blur.png"
+                                blurDataURL="/blur.webp"
                                 alt={name}
                                 quality={65}
                                 className={s.img}

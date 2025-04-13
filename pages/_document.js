@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
 
                     <meta property="og:site_name" content="Мастер Пола" />
                     <meta property="og:type" content="website" />
-                    <meta property="og:image" content={'/ogimage.jpg'} />
+                    <meta property="og:image" content={'/ogimage.webp'} />
 
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>

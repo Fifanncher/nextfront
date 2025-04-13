@@ -42,7 +42,7 @@ class ArticlesView extends React.Component {
                             width={45}
                             height={45}
                             layout='responsive'
-                            src={'/emoji.png'}
+                            src={'/emoji.webp'}
                         />
                     </div>
                     <div>

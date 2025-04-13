@@ -133,15 +133,15 @@ class CardView extends React.Component {
                                 />
                                 <Image
                                     placeholder={'blur'}
-                                    blurDataURL="/blur.png"
+                                    blurDataURL="/blur.webp"
                                     height={180}
                                     width={260}
                                     alt={`${fullName} в Тюмени`}
-                                    loader={() => img || "/blur.png"}
+                                    loader={() => img || "/blur.webp"}
                                     quality={80}
                                     className={cn(s.img, {[s.isDoor]: isDoor || category === 'Двери'})}
                                     //потом поправлю
-                                    src={img || "/blur.png"}
+                                    src={img || "/blur.webp"}
                                 />
                             </CardMedia>
                             <CardContent className={s.content}>

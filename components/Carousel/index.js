@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import Nophoto from '../../public/nophoto.png';
+import Nophoto from '../../public/nophoto.webp';
 import s from './carousel.module.scss';
 import Image from 'next/image';
 import {A11y, Thumbs, EffectFade, FreeMode, Navigation, Pagination} from 'swiper';
@@ -20,7 +20,7 @@ const CarouselView = ({imgs, name}) => {
       <SwiperSlide className={s.itemCarousel}>
         <Image
           placeholder={'blur'}
-          blurDataURL='/blur.png'
+          blurDataURL='/blur.webp'
           width='100%'
           height='100%'
           layout='responsive'
@@ -56,7 +56,7 @@ const CarouselView = ({imgs, name}) => {
         ) : (
           <Image
             placeholder={'blur'}
-            blurDataURL='/blur.png'
+            blurDataURL='/blur.webp'
             quality={90}
             width='100%'
             height='100%'
@@ -102,7 +102,7 @@ const CarouselView = ({imgs, name}) => {
             unoptimized={true}
             quality={30}
             placeholder={'blur'}
-            blurDataURL='/blur.png'
+            blurDataURL='/blur.webp'
             width='80'
             height='80'
             objectFit='cover'

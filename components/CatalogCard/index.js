@@ -22,7 +22,7 @@ class Card extends React.Component {
                 <div className={s.card} onClick={() => this.props.RootStore.setCategoryMerge(alias)}>
                     <Image
                         placeholder={'blur'}
-                        blurDataURL="/blur.png"
+                        blurDataURL="/blur.webp"
                         quality={50}
                         loader={() => img}
                         src={img}

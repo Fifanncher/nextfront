@@ -26,8 +26,8 @@ class ReviewsView extends React.Component {
           <ReviewsCard
             name={'Асель Тижбаева'}
             imgs={[
-              {src: '/reviews/6.jpg'},
-              {src: '/reviews/7.jpg'}
+              {src: '/reviews/6.webp'},
+              {src: '/reviews/7.webp'}
             ]}
             date={'11 августа 2023'}
             text={`Хороший магазин. Консультанты вежливые, помогли при выборе напольного покрытия 👍
@@ -62,7 +62,7 @@ class ReviewsView extends React.Component {
           <div className={s.media}>
             <div>
               <Image
-                src={'/reviews/otzyv_3.jpg'}
+                src={'/reviews/otzyv_3.webp'}
                 width={280}
                 height={270}
                 alt={'Отзыв'}
@@ -70,7 +70,7 @@ class ReviewsView extends React.Component {
             </div>
             <div>
               <Image
-                src={'/services/1.jpg'}
+                src={'/services/1.webp'}
                 width={280}
                 height={270}
                 alt={'Отзыв'}
@@ -78,7 +78,7 @@ class ReviewsView extends React.Component {
             </div>
             <div>
               <Image
-                src={'/reviews/otzyv_4.jpg'}
+                src={'/reviews/otzyv_4.webp'}
                 width={180}
                 height={270}
                 alt={'Отзыв'}
